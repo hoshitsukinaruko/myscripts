@@ -6,3 +6,8 @@ Maybe will have something wrong on your system.
 ```sh
 curl -s https://raw.githubusercontent.com/nanami1227/myscripts/master/exfat.sh | sudo bash
 ```
+
+## Add EPEL and RPM Fusion
+```
+curl -s https://raw.githubusercontent.com/nanami1227/myscripts/master/enable_epel_andrpmfusion.sh | sudo bash
+```
