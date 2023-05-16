@@ -13,6 +13,6 @@ curl -s https://raw.githubusercontent.com/nanami1227/myscripts/master/enable_epe
 ```
 
 ## Install Flatpak sources
-```
+```sh
 curl -s https://raw.githubusercontent.com/nanami1227/myscripts/master/setup_flatpak_sources.sh | sudo bash
 ```
