@@ -8,6 +8,11 @@ curl -s https://raw.githubusercontent.com/nanami1227/myscripts/master/exfat.sh |
 ```
 
 ## Add EPEL and RPM Fusion
-```
+```sh
 curl -s https://raw.githubusercontent.com/nanami1227/myscripts/master/enable_epel_andrpmfusion.sh | sudo bash
+```
+
+## Install Flatpak sources
+```
+curl -s https://raw.githubusercontent.com/nanami1227/myscripts/master/setup_flatpak_sources.sh | sudo bash
 ```
