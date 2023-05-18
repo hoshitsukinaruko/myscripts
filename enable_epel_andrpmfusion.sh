@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$(rpm -E %rhel)" == 8 ]
+if [ "$(rpm -E %rhel)" == 8 ]; then
   sudo subscription-manager repos --enable "codeready-builder-for-rhel-8-$(uname -m)-rpms"
 	sudo dnf config-manager --enable PowerTools
 fi
