@@ -1,4 +1,8 @@
 #!/bin/bash
+function has_command() {
+  command -v $1 >/dev/null
+}
+
 # CustomOutput
 function customOutput {
   figlet -f banner -kc $1 | lolcat
@@ -37,15 +41,10 @@ prompt() {
   esac
 }
 
-function has_command() {
-  command -v $1 >/dev/null
-}
-
 if has_command figlet && has_command lolcat; then
-  customOutput "Setting up vim"
-else
-  prompt -i "Setting up vim..."
+  customOutput "Set up vim"
 fi
+prompt -i "Setting up vim..."
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/.vimrc --output ~/.vimrc --silent
@@ -53,3 +52,5 @@ curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/coc-conf
 curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/plugin.vim --output ~/.vim/plugin.vim --silent
 mkdir -p ~/.vim/pack/themes/start
 git clone https://github.com/doki-theme/doki-theme-vim.git ~/.vim/pack/themes/start/doki-theme
+
+prompt -s "VIM setup complete!"

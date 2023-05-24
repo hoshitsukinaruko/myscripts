@@ -38,3 +38,21 @@ curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/setupVIM.
 ```sh
 curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/setupZsh.sh | bash
 ```
+
+## Install Discord
+
+```sh
+curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/installDiscord.sh | bash
+```
+
+## add Microsoft repo
+
+```sh
+curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/addMicrosoftRepo.sh | bash
+```
+
+## add Visual Studio Code repo
+
+```sh
+curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/addVisualStudioCodeRepo.sh | bash
+```

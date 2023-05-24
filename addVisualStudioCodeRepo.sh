@@ -42,19 +42,30 @@ prompt() {
 }
 
 if has_command figlet && has_command lolcat; then
-  customOutput "Install flathub repo"
+  customOutput "Add Visual Studio Code repo"
 fi
-prompt -i "Installing flathub repo..."
-
+prompt -i "Adding Visual Studio Code repo..."
+prompt -i "Addin GPG key..."
 OSID=$(cat /etc/os-release | egrep ^ID= | tr -d ID=\")
 if [[ "$OSID" == "ubuntu" || "$OSID" == "debain" ]]; then
-  sudo apt install flatpak
-  sudo apt install gnome-software-plugin-flatpak
+  curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 fi
 if [[ "$OSID" == "rhel" || "$OSID" == "rocky" || "$OSID" == "centos" || "$OSID" == "almalinux" ]]; then
-  sudo dnf install flatpak
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 fi
-
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-prompt -s "Flathub repo installed..."
+prompt -s "GPG key added!"
+OSID=$(cat /etc/os-release | egrep ^ID= | tr -d ID=\")
+if [[ "$OSID" == "ubuntu" || "$OSID" == "debain" ]]; then
+  sudo add-apt-repository "deb [arch=$(uname -m)] https://packages.microsoft.com/repos/vscode stable main"
+fi
+if [[ "$OSID" == "rhel" || "$OSID" == "rocky" || "$OSID" == "centos" || "$OSID" == "almalinux" ]]; then
+  sudo tee /etc/yum.repos.d/vscode.repo <<ADDREPO
+[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+ADDREPO
+fi
+prompt -s "Microsoft repo added!"

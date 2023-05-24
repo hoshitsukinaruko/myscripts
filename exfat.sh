@@ -1,4 +1,8 @@
 #!/bin/bash
+function has_command() {
+  command -v $1 >/dev/null
+}
+
 # CustomOutput
 function customOutput {
   figlet -f banner -kc $1 | lolcat
@@ -37,15 +41,10 @@ prompt() {
   esac
 }
 
-function has_command() {
-  command -v $1 >/dev/null
-}
-
 if has_command figlet && has_command lolcat; then
-  customOutput "Installing exfat support"
-else
-  prompt -i "Installing exfat support..."
+  customOutput "Install exfat support"
 fi
+prompt -i "Installing exfat support..."
 
 yum group install 'Development Tools' -y
 yum install fuse-devel -y
@@ -55,3 +54,5 @@ autoreconf --install
 ./configure --prefix=/usr
 Make
 make install
+
+prompt -s "exfat support installed!"

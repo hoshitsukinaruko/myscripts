@@ -42,10 +42,20 @@ prompt() {
 }
 
 if has_command figlet && has_command lolcat; then
-  customOutput "Set up zsh"
+  customOutput "Add Microsoft repo"
 fi
-prompt -i "Setting up zsh..."
-
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/.zshrc --output ~/.zshrc --silent
-prompt -s "Zsh setup complete"
+prompt -i "Adding Microsoft repo..."
+prompt -i "Addin GPG key..."
+OSID=$(cat /etc/os-release | egrep ^ID= | tr -d ID=\")
+if [[ "$OSID" == "ubuntu" || "$OSID" == "debain" ]]; then
+  curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+fi
+prompt -s "GPG key added!"
+OSID=$(cat /etc/os-release | egrep ^ID= | tr -d ID=\")
+if [[ "$OSID" == "ubuntu" || "$OSID" == "debain" ]]; then
+  sudo apt-add-repository "https://packages.microsoft.com/$OSID/$(lsb_release -a | egrep ^Release: | tr -d Release:)/prod"
+fi
+if [[ "$OSID" == "rhel" || "$OSID" == "rocky" || "$OSID" == "centos" || "$OSID" == "almalinux" ]]; then
+  sudo yum install "https://packages.microsoft.com/config/$OSID/$(rpm -E %rhel)/packages-microsoft-prod.rpm"
+fi
+prompt -s "Microsoft repo added!"
