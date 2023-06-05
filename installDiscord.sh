@@ -84,7 +84,7 @@ if [[ "$OSID" == "rhel" || "$OSID" == "rocky" || "$OSID" == "centos" || "$OSID" 
   prompt -s "Dependencies installed..."
   curl -sLo discord.tar.gz "https://discordapp.com/api/download?platform=linux&format=tar.gz"
   sudo tar -xvzf discord.tar.gz -C /opt
-  mkdir -p /usr/share/discord
+  sudo mkdir -p /usr/share/discord
   sudo ln -sf /opt/Discord/Discord /usr/share/discord/Discord
   sudo sed -i -e "s/^Icon=discord/Icon=discord.png/" /opt/Discord/discord.desktop
   sudo cp -r /opt/Discord/discord.desktop /usr/share/applications
