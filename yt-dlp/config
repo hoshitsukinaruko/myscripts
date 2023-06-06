@@ -1,0 +1,21 @@
+--wait-for-video 0-3600
+--mark-watched
+--yes-playlist
+--paths "/home/ClipSources"
+--paths "subtitle:subs"
+--paths "thumbnail:thumbnail"
+--output "%(uploader)s/%(playlist)s/%(title)s.%(ext)s"
+--output-na-placeholder "Unknown"
+--windows-filenames
+--no-part
+--cookies "/etc/yt-dlp/cookies"
+--no-cache-dir
+--write-thumbnail
+--quiet
+--progress
+--console-title
+--format "ba+bv/b"
+--write-subs
+--sub-langs all
+--concurrent-fragments 128
+--ffmpeg-threads 128

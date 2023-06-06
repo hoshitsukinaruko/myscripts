@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 function has_command() {
     command -v $1 >/dev/null
 }
@@ -42,10 +43,11 @@ prompt() {
 }
 
 if has_command figlet && has_command lolcat; then
-    customOutput "Set up zsh"
+    customOutput "Set up yt-dlp"
 fi
-prompt -i "Setting up zsh..."
-
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/zsh/.zshrc --output ~/.zshrc --silent
-prompt -s "Zsh setup complete"
+prompt -i "Setting up yt-dlp..."
+sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp --silent
+sudo chmod a+rx /usr/local/bin/yt-dlp
+sudo curl -L https://raw.githubusercontent.com/naruko-hstk/myscripts/master/yt-dlp/config --output /etc/yt-dlp/config --silent
+sudo chmod a+rx /etc/yt-dlp/config
+prompt -s "yt-dlp setup complete"
