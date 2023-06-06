@@ -42,17 +42,22 @@ curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/setupZsh.
 ## Install Discord
 
 ```sh
-curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/installDiscord.sh | bash
+curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/installDiscord.sh | sudo bash
 ```
 
 ## add Microsoft repo
 
 ```sh
-curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/addMicrosoftRepo.sh | bash
+curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/addMicrosoftRepo.sh | sudo bash
 ```
 
 ## add Visual Studio Code repo
 
 ```sh
-curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/addVisualStudioCodeRepo.sh | bash
+curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/addVisualStudioCodeRepo.sh | sudo bash
 ```
+
+## Install yt-dlp
+
+```sh
+curl -s https://raw.githubusercontent.com/naruko-hstk/myscripts/master/yt-dlpConfiguration.sh | sudo bash

@@ -1,11 +1,11 @@
 #!/bin/bash
 function has_command() {
-  command -v $1 >/dev/null
+    command -v $1 >/dev/null
 }
 
 # CustomOutput
 function customOutput {
-  figlet -f banner -kc $1 | lolcat
+    figlet -f banner -kc $1 | lolcat
 }
 
 # When no figlet and lolcat
@@ -22,37 +22,37 @@ b_CRER=" \033[1;31m" # bold error color
 b_CWAR=" \033[1;33m"
 # echo like ...  with  flag type  and display message  colors
 prompt() {
-  case ${1} in
-  "-s" | "--success")
-    echo -e "${b_CGSC}${@/-s/}${CDEF}"
-    ;; # print success message
-  "-e" | "--error")
-    echo -e "${b_CRER}${@/-e/}${CDEF}"
-    ;; # print error message
-  "-w" | "--warning")
-    echo -e "${b_CWAR}${@/-w/}${CDEF}"
-    ;; # print warning message
-  "-i" | "--info")
-    echo -e "${b_CCIN}${@/-i/}${CDEF}"
-    ;; # print info message
-  *)
-    echo -e "$@"
-    ;;
-  esac
+    case ${1} in
+        "-s" | "--success")
+            echo -e "${b_CGSC}${@/-s/}${CDEF}"
+        ;; # print success message
+        "-e" | "--error")
+            echo -e "${b_CRER}${@/-e/}${CDEF}"
+        ;; # print error message
+        "-w" | "--warning")
+            echo -e "${b_CWAR}${@/-w/}${CDEF}"
+        ;; # print warning message
+        "-i" | "--info")
+            echo -e "${b_CCIN}${@/-i/}${CDEF}"
+        ;; # print info message
+        *)
+            echo -e "$@"
+        ;;
+    esac
 }
 
 if has_command figlet && has_command lolcat; then
-  customOutput "Install flathub repo"
+    customOutput "Install flathub repo"
 fi
 prompt -i "Installing flathub repo..."
 
 OSID=$(cat /etc/os-release | egrep ^ID= | tr -d ID=\")
 if [[ "$OSID" == "ubuntu" || "$OSID" == "debain" ]]; then
-  sudo apt install flatpak
-  sudo apt install gnome-software-plugin-flatpak
+    apt install flatpak
+    apt install gnome-software-plugin-flatpak
 fi
 if [[ "$OSID" == "rhel" || "$OSID" == "rocky" || "$OSID" == "centos" || "$OSID" == "almalinux" ]]; then
-  sudo dnf install flatpak
+    dnf install flatpak
 fi
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

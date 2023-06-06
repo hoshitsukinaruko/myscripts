@@ -48,18 +48,18 @@ prompt -i "Adding Microsoft repo..."
 prompt -i "Addin GPG key..."
 OSID=$(cat /etc/os-release | egrep ^ID= | tr -d ID=\")
 if [[ "$OSID" == "ubuntu" || "$OSID" == "debain" ]]; then
-    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 fi
 prompt -s "GPG key added!"
 OSID=$(cat /etc/os-release | egrep ^ID= | tr -d ID=\")
 if [[ "$OSID" == "ubuntu" || "$OSID" == "debain" ]]; then
-    sudo apt-add-repository "https://packages.microsoft.com/$OSID/$(lsb_release -a | egrep ^Release: | tr -d Release:)/prod"
+    apt-add-repository "https://packages.microsoft.com/$OSID/$(lsb_release -a | egrep ^Release: | tr -d Release:)/prod"
 fi
 if [[ "$OSID" == "rhel" || "$OSID" == "rocky" || "$OSID" == "centos" || "$OSID" == "almalinux" ]]; then
     if [[ "$OSID" == "rhel" && "$(rpm -E %rhel)" == 9 ]]; then
-        sudo dnf install "https://packages.microsoft.com/config/$OSID/9/packages-microsoft-prod.rpm"
+        dnf install "https://packages.microsoft.com/config/$OSID/9/packages-microsoft-prod.rpm"
     else
-        sudo yum install "https://packages.microsoft.com/config/$OSID/$(rpm -E %rhel)/packages-microsoft-prod.rpm"
+        yum install "https://packages.microsoft.com/config/$OSID/$(rpm -E %rhel)/packages-microsoft-prod.rpm"
     fi
 fi
 prompt -s "Microsoft repo added!"
