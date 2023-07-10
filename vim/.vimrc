@@ -24,6 +24,6 @@ if filereadable(expand("~/.vim/plugin.vim"))
   source ~/.vim/plugin.vim
 endif
 if filereadable(expand("~/.config/nvim/plugin.vim"))
-  source ~/.local/share/nvim/plugin.vim
+  source ~/.config/nvim/plugin.vim
 endif
 
