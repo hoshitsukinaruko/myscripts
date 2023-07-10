@@ -52,6 +52,7 @@ if command -v nvim; then
   curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/.vimrc --output ~/.config/nvim/init.vim --silent
   curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/coc-config.vim --output ~/.config/nvim/coc-config.vim --silent
   curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/plugin.vim --output ~/.config/nvim/plugin.vim --silent
+  ln -s ~/.config/nvim/plugin.vim ~/.local/share/nvim/plugin.vim
   mkdir -p ~/.local/share/nvim/site/pack/themes/start
   git clone https://github.com/doki-theme/doki-theme-vim.git ~/.local/share/nvim/site/pack/themes/start
 else
