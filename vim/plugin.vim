@@ -1,5 +1,4 @@
-call plug#begin('~/.vim/plugged')
-
+call plug#begin()
 "NerdCommenter
 Plug 'preservim/nerdcommenter'
 filetype plugin on
