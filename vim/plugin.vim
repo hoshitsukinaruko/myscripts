@@ -100,6 +100,11 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'cespare/vim-toml'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-so ~/.vim/coc-config.vim
+if filereadable('~/.vim/coc-config.vim')
+	source ~/.vim/coc-config.vim
+endif
+if filereadable('~/.config/nvim/coc-config.vim')
+	source ~/.config/nvim/coc-config.vim
+endif
 
 call plug#end()

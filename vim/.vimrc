@@ -18,6 +18,12 @@ set noshowmode
 set noruler
 set noshowcmd
 packadd! doki-theme
-colorscheme mai_dark
+colorscheme nakano_miku
 
-so ~/.vim/plugin.vim
+if filereadable(expand("~/.vim/plugin.vim"))
+  source ~/.vim/plugin.vim
+endif
+if filereadable(expand("~/.config/nvim/plugin.vim"))
+  source ~/.local/share/nvim/plugin.vim
+endif
+

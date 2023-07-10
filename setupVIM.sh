@@ -47,10 +47,17 @@ fi
 prompt -i "Setting up vim..."
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/.vimrc --output ~/.vimrc --silent
-curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/coc-config.vim --output ~/.vim/coc-config.vim --silent
-curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/plugin.vim --output ~/.vim/plugin.vim --silent
-mkdir -p ~/.vim/pack/themes/start
-git clone https://github.com/doki-theme/doki-theme-vim.git ~/.vim/pack/themes/start/doki-theme
-
+if command -v nvim; then
+  curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/init.vim --output ~/.config/nvim/init.vim --silent
+  curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/coc-config.vim --output ~/.config/nvim/coc-config.vim --silent
+  curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/plugin.vim --output ~/.config/nvim/plugin.vim --silent
+  mkdir -p ~/.local/share/nvim/site/pack/themes/start
+  git clone https://github.com/doki-theme/doki-theme-vim.git ~/.local/share/nvim/site/pack/themes/start
+else
+  curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/.vimrc --output ~/.vimrc --silent
+  curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/coc-config.vim --output ~/.vim/coc-config.vim --silent
+  curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/plugin.vim --output ~/.vim/plugin.vim --silent
+  mkdir -p ~/.vim/pack/themes/start
+  git clone https://github.com/doki-theme/doki-theme-vim.git ~/.vim/pack/themes/start/doki-theme
+fi
 prompt -s "VIM setup complete!"
