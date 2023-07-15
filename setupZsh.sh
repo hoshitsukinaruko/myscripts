@@ -46,6 +46,5 @@ if has_command figlet && has_command lolcat; then
 fi
 prompt -i "Setting up zsh..."
 
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/zsh/.zshrc --output ~/.zshrc --silent
 prompt -s "Zsh setup complete"
