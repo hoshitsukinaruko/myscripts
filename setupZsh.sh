@@ -47,4 +47,6 @@ fi
 prompt -i "Setting up zsh..."
 
 curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/zsh/.zshrc --output ~/.zshrc --silent
+source ~/.zshrc
+
 prompt -s "Zsh setup complete"
