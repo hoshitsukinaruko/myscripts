@@ -54,7 +54,7 @@ if command -v nvim; then
   curl https://raw.githubusercontent.com/naruko-hstk/myscripts/master/vim/plugin.vim --output ~/.config/nvim/plugin.vim --silent
   ln -s ~/.config/nvim/plugin.vim ~/.local/share/nvim/plugin.vim
   mkdir -p ~/.local/share/nvim/site/pack/themes/start
-  git clone https://github.com/doki-theme/doki-theme-vim.git ~/.local/share/nvim/site/pack/themes/start
+  git clone https://github.com/doki-theme/doki-theme-vim.git ~/.local/share/nvim/site/pack/themes/start/doki-theme
 else
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   mkdir -p ~/.vim
