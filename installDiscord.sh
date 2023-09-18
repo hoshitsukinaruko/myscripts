@@ -86,7 +86,7 @@ if [[ "$OSID" == "rhel" || "$OSID" == "rocky" || "$OSID" == "centos" || "$OSID" 
     tar -xvzf discord.tar.gz -C /opt
     mkdir -p /usr/share/discord
     ln -sf /opt/Discord/Discord /usr/share/discord/Discord
-    sed -i -e "s/^Icon=discord/Icon=discord.png/" /opt/Discord/discord.desktop
+    sed -i -e "s/^Icon=discord/Icon=/opt/Discord/discord.png/" /opt/Discord/discord.desktop
     cp -r /opt/Discord/discord.desktop /usr/share/applications
     rm discord.tar.gz
 fi
